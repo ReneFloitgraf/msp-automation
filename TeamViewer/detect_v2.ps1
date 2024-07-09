@@ -127,6 +127,7 @@ if ($null -ne $failed_connections) {
 
 if ($healthy -eq $true) {
     Write-Host "Healthy"
+    exit 0
 } else {
     Write-Host "Unhealthy"
     Write-Host $issues
@@ -134,4 +135,5 @@ if ($healthy -eq $true) {
     foreach ($detail_message in $detail_messages) {
         Write-Host "$($detail_message.time_started.ToString("dd.MM.yyyy HH:mm:ss")): $($detail_message.text)"
     }
+    exit 1
 }
